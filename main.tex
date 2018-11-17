@@ -1,0 +1,386 @@
+% ****** Start of file apssamp.tex ******
+%
+%   This file is part of the APS files in the REVTeX 4.1 distribution.
+%   Version 4.1r of REVTeX, August 2010
+%
+%   Copyright (c) 2009, 2010 The American Physical Society.
+%
+%   See the REVTeX 4 README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% See the REVTeX 4 README file
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex apssamp.tex
+%  2)  bibtex apssamp
+%  3)  latex apssamp.tex
+%  4)  latex apssamp.tex
+%
+\documentclass[%
+ reprint,
+%superscriptaddress,
+%groupedaddress,
+%unsortedaddress,
+%runinaddress,
+%frontmatterverbose, 
+%preprint,
+%showpacs,preprintnumbers,
+%nofootinbib,
+%nobibnotes,
+%bibnotes,
+ amsmath,amssymb,
+ aps,
+%pra,
+%prb,
+%rmp,
+%prstab,
+%prstper,
+%floatfix,
+]{revtex4-1}
+\usepackage{url}
+
+\usepackage{subcaption} 
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage{hyperref}% add hypertext capabilities
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+%\usepackage[showframe,%Uncomment any one of the following lines to test 
+%%scale=0.7, marginratio={1:1, 2:3}, ignoreall,% default settings
+%%text={7in,10in},centering,
+%%margin=1.5in,
+%%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
+%%height=10in,a5paper,hmargin={3cm,0.8in},
+%]{geometry}
+
+\begin{document}
+
+%\preprint{APS/123-QED}
+
+\title{Mechanics Homework 3}% Force line breaks with \\
+%\thanks{A footnote to the article title}%
+
+\author{Joseph Camilleri}
+\email{jcamilleri@vt.edu}
+
+\author{Hong Yao}
+\email{ruyi101@mail.nankai.edu.cn}
+%
+
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\maketitle
+
+\section{Assignment 4: Satellite Orbits}
+\subsection{part A}
+To solve determine the motion of a projectile orbitting the Earth, we consider the Lagrangian of a particle in a central potential.
+
+
+\begin{equation*}
+\mathcal{L} = \dfrac{1}{2}\mu\left(\dot{r}^2 + r^2\dot{\phi}^2\right) - U(r)
+\end{equation*}
+Where $\mu$ is the reduced mass 
+\begin{equation*}
+\mu = \dfrac{mM_{\bigoplus}}{m + M_{\bigoplus}}
+\end{equation*}
+
+and $r$ is the distance between the small orbiting mass $m$
+and the earth.
+
+\begin{equation*}
+r = \lvert r_1 - r_2 \rvert   
+\end{equation*}
+
+We can examine the azimuthal coordinate, $\phi$ with the Euler Lagrange Equation. The equation is independent of $\phi$, so
+
+\begin{eqnarray*}
+\dfrac{\partial\mathcal{L}}{\partial\phi} -  \dfrac{d}{d t}  \dfrac{\partial\mathcal{L}}{\partial\dot{\phi}} = 0 \\
+\dfrac{d}{d t}\dfrac{\partial\mathcal{L}}{\partial\dot{\phi}} = \dfrac{d}{d t}\left(\mu r^2\dot{\phi}\right) = 0
+\end{eqnarray*}
+
+This equation implies that the quantity $\mu r^2\dot{\phi}$ is conserved during the particle's motion in time.
+
+\begin{equation*}
+M_z = \mu r^2\dot{\phi}
+\end{equation*}
+
+Since the angular momentum, dependent on $\dot{\phi}$, is conserved, we can rewrite the Lagrangian of the trajectory as a function only of r.
+
+\begin{equation*}
+\mathcal{L} = \dfrac{1}{2}\mu\dot{r}^2 + \dfrac{M_z^2}{2\mu r^2} - U(r)
+\end{equation*}
+
+The total energy of the system, $E$, is also conserved
+
+\begin{equation*}
+E = \dfrac{1}{2}\mu\dot{r}^2 + \dfrac{M_z^2}{2\mu r^2} + U(r)  
+\end{equation*}
+
+If we want to understand the time elapsed between the particle moving between two distances from earth on its trajectory, we can solve first for $\dot{r}$
+
+\begin{equation*}
+\dot{r} = \dfrac{dr}{dt} = \sqrt{\dfrac{2}{\mu}\left(E-\dfrac{M_z^2}{2\mu r^2} - U(r)\right)}
+\end{equation*}
+
+Isolating dt and integrating both sides of the equation, the time between two distances from Earth on the trajectory are:
+
+\begin{equation*}
+t = \int_{r_1}^{r_2}\dfrac{dr}{\sqrt{\dfrac{2}{\mu}\left(E-\dfrac{M_z^2}{2\mu r^2} - U(r)\right)}}     
+\end{equation*}
+
+Now we will refer back to a conserved quantity for a system in a central potential, $M_z$.
+
+\begin{eqnarray*}
+M_z = \mu r^2\dot{\phi} = \mu r^2\dfrac{d\phi}{dt} \\ 
+\int d\phi = \int\dfrac{M_z}{\mu r^2}dt
+\end{eqnarray*}
+
+Then $\phi$ can be calculated as a function of the radius progressing on the particle's trajectory
+
+\begin{equation*}
+\phi = \int_{r_1}^{r_2}\dfrac{M_z dr}{r^2\sqrt{2\mu\left(E-\dfrac{M_z^2}{2\mu r^2} - U(r)\right)}} 
+\end{equation*}
+
+Now we will consider the case of the potential in our specific problem 
+\begin{equation*}
+U(r) = -\dfrac{\alpha}{r}, \alpha = GmM_\bigoplus
+\end{equation*}
+
+\begin{equation*}
+\phi(r) = \int_{r_1}^{r_2}\dfrac{M_z dr}{r^2\sqrt{2\mu\left(E-\dfrac{M_z^2}{2\mu r^2} + \dfrac{\alpha}{r}\right)}}
+\end{equation*}
+
+First, we will factor $M_z$ from the denominator and multiply through $2\mu$ under the square root
+
+\begin{equation*}
+\phi(r) = \int^{r}\dfrac{dr}{r^2\sqrt{\left(\dfrac{2\mu E}{M_z^2}-\dfrac{1}{r^2} + \dfrac{2\mu\alpha}{rM_z^2}\right)}}
+\end{equation*}
+
+Then applying a substitution 
+
+\begin{equation*}
+u = \dfrac{1}{r}, \ du = \dfrac{-1}{r^2}    
+\end{equation*}
+
+\begin{equation*}
+\phi(r) = \int^{r}\dfrac{-du}{\sqrt{\left(\dfrac{2\mu E}{M_z^2} + u\left(\dfrac{2\mu\alpha}{M_z^2}\right)-u^2\right)}}
+\end{equation*}
+
+Completing the square, the denominator simplifies:
+
+\begin{equation*}
+\phi(r) = -\int^{r}\dfrac{du}{\sqrt{\left(\chi+\dfrac{\beta^2}{4}-(u-\dfrac{\beta}{2})^2\right)}}
+\end{equation*}
+
+With
+\begin{eqnarray*}
+\chi = \dfrac{2\mu E}{M_z^2}   \\
+\beta = \dfrac{2\mu\alpha}{M_z^2}
+\end{eqnarray*}
+
+This integral is an inverse cosine function, defined up to the initial azimuthal position of the particle, $\phi_o$:
+
+\begin{equation*}
+\phi(r) = cos^{-1}\left[\dfrac{\dfrac{M_z}{r}-\dfrac{\mu\alpha}{M_z}}{\sqrt{2\mu E + \dfrac{\mu^2\alpha^2}{M_z^2}}}\right] + \phi_o   
+\end{equation*}
+
+With this equation in hand, we want to find when the particle strikes the earth's surface. In terms of the equation, this is when the radius of the particle relative to the earth's center is the also the earth's radius.
+
+Additionally, the energy of the system is conserved in time.
+
+So $E_{launch} = E_{impact}$
+
+\begin{equation*}
+E = \dfrac{1}{2}mv_o^2 + U(r=R_\bigoplus+8.848km)    
+\end{equation*}
+
+The distance traveled by the projectile is the arc length of the path $\Delta\theta\cdot R_\bigoplus$
+
+Taking $\phi_o$ to be the initial angular displacement (0), $\Delta\theta$ is $\phi\left(R_\bigoplus\right)$
+\begin{equation*}
+\begin{aligned}
+&\phi(R_{\bigoplus}) = \\&\cos^{-1}\left[\dfrac{\dfrac{M_z}{R_\bigoplus}-\dfrac{\mu\alpha}{M_z}}{\sqrt{2\mu \left[\dfrac{1}{2}mv_o^2 + U(r=R_\bigoplus+8.848km)\right] + \dfrac{\mu^2\alpha^2}{M_z^2}}}\right] + \phi_o  
+\end{aligned}
+\end{equation*}
+where
+\begin{equation*}
+\begin{aligned}
+    \alpha&=GM_{\bigoplus}\mu.
+    \\U(r)&=-\frac{GM_{\bigoplus}\mu}{r}
+\end{aligned}
+\end{equation*}
+Finally, we get
+\begin{equation*}
+d_{impact} = (\phi\left(R_\bigoplus\right)-\phi_0)\cdot R_\bigoplus    
+\end{equation*}
+Since we know
+\begin{equation*}
+    M_z=\mu v_0(R_{\bigoplus}+h),
+\end{equation*}
+We can take the value into above equation and get
+\begin{equation*}
+    d_{impact}=R_{\bigoplus}\arccos\left(\frac{v_0^2(R_{\bigoplus}+h)^2-GM_{\bigoplus}R_{\bigoplus}}{R_{\bigoplus}\cdot|v_0^2(R_{\bigoplus}+h)-GM_{\bigoplus}|}\right)
+\end{equation*}
+Rearranging the expression for theta, we can see the trajectory
+as
+
+\begin{equation*}
+    \frac{p}{r}=1+e\cos{\phi}
+\end{equation*}
+where $e$ is the eccentricity
+\begin{equation*}
+    e=\sqrt{1+\frac{2EM_z^2}{\mu^3 G^2M^2_{\bigoplus}}}
+\end{equation*}
+and $p$ is 
+\begin{equation*}
+    p=\frac{M_z^2}{GM_{\bigoplus}\mu^2}
+\end{equation*}
+
+
+\subsection{Critical Velocity of the Projectile}
+In this part, we will derive the critical velocity of the projectile in which the ball won't attack the ground. 
+From part (a), we know the polar angle for the grounded point
+\begin{equation*}
+    \cos{\phi}=\frac{1}{e}(\frac{p}{R_{\bigoplus}}-1)
+\end{equation*}
+If we have
+\begin{equation*}
+\begin{aligned}
+\frac{1}{e}(\frac{p}{R_{\bigoplus}}-1)&>1
+\\\frac{1}{e}(\frac{p}{R_{\bigoplus}}-1)&<-1
+\end{aligned},
+\end{equation*}
+there will not be any intersection between the Earth surface and the trajectory. Thus, the critical point should be
+\begin{equation*}
+    \frac{1}{e}(\frac{p}{R_{\bigoplus}}-1)=\pm1
+\end{equation*}
+Thus we have
+\begin{equation*}
+    e^2=(\frac{p}{R_{\bigoplus}}-1)^2
+\end{equation*}
+When we take $p$ and $e$ into this equation, we get
+\begin{equation*}
+\frac{M_z^4}{R_{\bigoplus}^2G^2M_{\bigoplus}^2\mu^4}
+-\frac{2M_z^2}{R_{\bigoplus}GM_{\bigoplus}\mu^2}
+=\frac {2EM_z^2}{\mu^3G^2M_{\bigoplus}^2}
+\end{equation*}
+We can take $M_z$ and $E$ into above equation and we will get
+\begin{equation*}
+    v_0=\sqrt{\frac{2hR_{\bigoplus}^2GM_{\bigoplus}}{(R_{\bigoplus}^2+R_{\bigoplus}h)(h^2+2R_{\bigoplus}h)}}=\sqrt{\frac{2R_{\bigoplus}GM_{\bigoplus}}{(R_{\bigoplus}+h)(h+2R_{\bigoplus})}}
+\end{equation*}
+Take the values into above equation, we will get
+\begin{equation*}
+    v_c=7906(m/s).
+\end{equation*}
+\subsection{Orbit Period and Eccentricity}
+In this part, we derive the eccentricity of the path from the trajectory function. And we derive the period of the motion from Kepler's third law.
+\subsubsection{Eccentricity}
+From Part(a), we know that the trajectory function is 
+\begin{equation*}
+    \frac{p}{r}=1+e\cos{\phi}
+\end{equation*}
+where $e$ is the eccentricity
+\begin{equation*}
+    e=\sqrt{1+\frac{2EM_z^2}{\mu^3 G^2M^2_{\bigoplus}}}
+\end{equation*}
+and $p$ is 
+\begin{equation*}
+    p=\frac{M_z^2}{GM_{\bigoplus}\mu^2}
+\end{equation*}
+And from the conservation of the energy and the angular momentum
+\begin{equation*}
+\begin{aligned}
+M_z&=\mu(R_{\bigoplus}+h)v_0
+\\E&=E_0=\frac{1}{2}\mu v_0^2-\frac{GM_{\bigoplus}\mu}{R_{\bigoplus}+h}
+\end{aligned}
+\end{equation*}
+Thus, we have the eccentricity 
+\begin{equation*}
+    e=\frac{|v_0^2(R_{\bigoplus}+h)-GM_{\bigoplus}|}{GM_{\bigoplus}}
+\end{equation*}
+When we take the value into the above formula, we get
+\begin{equation*}
+    e=\frac{|6.372\times10^{-8}v_0^2-3.984|}{3.984}
+\end{equation*}
+\subsubsection{The period of the motion}
+From geometry, we can find the length of the semi-major axis $a$ and semi-minor axis $b$
+\begin{equation*}
+ \begin{aligned}
+ a&=\frac{p}{1-e^2}=\frac{GM_{\bigoplus}\mu}{2|E|}
+ \\b&=\frac{p}{\sqrt{1-e^2}}=\frac{M_z}{\sqrt{2\mu|E|}}
+ \end{aligned}  
+\end{equation*}
+From the conservation of the angular momentum, we know
+\begin{equation*}
+M_z=\mu r^2\dot{\phi}=2\mu\dot{S}    
+\end{equation*}
+where $S$ is the area of the trajectory.
+
+After finishing the integral, we will get
+\begin{equation*}
+    T=\frac{2\mu S}{M_z}
+\end{equation*}
+For a elliptical orbit, the surface area $S$ is
+\begin{equation*}
+    S=\pi ab=\frac{GM_{\bigoplus}\mu M_z}{2\sqrt{2\mu|E|^3}}
+\end{equation*}
+Thus,
+\begin{equation*}
+    T=\frac{2\mu S}{M_z}=GM_{\bigoplus}\sqrt{\frac{\mu^3}{2|E|^3}}=2\pi GM_{\bigoplus}\sqrt{\frac{1}{| v_0^2-\frac{2GM_{\bigoplus}}{R_{\bigoplus}+h}|^3}}
+\end{equation*}
+Finally, we have
+\begin{equation*}
+    T=\frac{2.503\times10^{15}(m^3/s^2)}{\sqrt{|v_0^2-1.25\times10^{8}(m^2/s^2)|^3}}
+\end{equation*}
+\subsection{Escape Velocity}
+In this part we will calculate the escape velocity for the ball threw from the mountain Everest. 
+From the energy conservation, we will have
+\begin{equation*}
+    E_0=E_f.
+\end{equation*}
+
+For $E_0$, we have
+\begin{equation*}
+    E_0=\frac{1}{2}\mu v_0^2-\frac{GM_{\bigoplus}\mu}{R+h}.
+\end{equation*}
+
+For $E_f$, it should be $0$.
+Thus, we have
+\begin{equation*}
+    \frac{1}{2}\mu v_c^2-\frac{GM_{\bigoplus}\mu}{R+h}=0
+\end{equation*}
+And finally we get
+\begin{equation*}
+    v_c=11182(m/s).
+\end{equation*}
+\subsection{Escape Velocity with the Rotation of Earth}
+For the rotation of earth, we have the angular velocity $\omega$
+\begin{equation*}
+    \omega=\frac{2\pi}{T}=\frac{2\pi}{8.6164\times10^{5}(s)}=7.292\times10^{-6}(s^{-1})
+\end{equation*}
+
+For the rotation radius on $27.9881^{\circ}$ N, it is
+\begin{equation*}
+    R=(R_{\bigoplus}+h)\cos{(27.9881^{\circ})}=5.62\times10^{6}(m).
+\end{equation*}
+Thus, the line speed $v_e$ on the Mountain Everest is 
+\begin{equation*}
+   v_e=R\omega 
+\end{equation*}
+Finally, the escape velocity should be
+\begin{equation*}
+    v_c'=v_c-v_e.
+\end{equation*}
+Take all the values into above equation, we get
+\begin{equation*}
+    v_c'=11141(m/s).
+\end{equation*}
+\end{document}
